@@ -12,7 +12,7 @@ block body
   section#makeDomo
     form#characterForm(class="characterForm", name="characterForm", action="/maker", method="POST")
       label(for="name") Name: 
-      input#characterName(type="text", name="name", placeholder="character Name")
+      input#characterName(type="text", name="name", placeholder="Character Name")
       label(for="age") Age: 
       input#characterAge(type="text", name="age", placeholder="Character Age")
       label(for="Color") Color:
@@ -25,7 +25,7 @@ block body
             h3.emptyCharacter No characters yet
     else
         each val in characters
-            div(style={color: val.color}).character
+            div.character
                 img(class="domoFace", src="/assets/img/domoface.jpeg", alt="domo face")
                 h3.characterName Name: #{val.name}
                 h3.characterAge Age: #{val.age}

@@ -10,7 +10,7 @@ var makerPage = function(req, res)
 			console.log(err);
 			return res.status(400).json({error: "An error occured"});
 		}		
-		res.render("app", {characters: docs});
+		res.render('app', {characters: docs});
 	});
 };
 
@@ -18,14 +18,14 @@ var makeCharacter = function(req, res)
 {
 	if(!req.body.name || !req.body.age)
 	{
-		return res.status(400).json({error: "RAWR! Both name and age are required"});
+		return res.status(400).json({error: "Both name and age are required"});
 	}
 	
 	var characterData = 
 	{
 		name: req.body.name,
 		age: req.body.age,
-		favcolor: req.body.color,
+		color: req.body.color,
 		owner: req.session.account._id
 	};
 	
@@ -38,7 +38,7 @@ var makeCharacter = function(req, res)
 			console.log(err);
 			return res.status(400).json({error: "An error occured"});
 		}		
-		res.json({redirect: "/maker"});
+		res.json({redirect: '/maker'});
 	});
 };
 
@@ -52,7 +52,7 @@ var viewPage = function(req, res)
 			console.log(err);
 			return res.status(400).json({error: "An error occured"});
 		}		
-		res.render("view",{characters: docs});
+		res.render('view',{characters: docs});
 	});
 };
 
