@@ -1,0 +1,28 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/logout") Log out
+    .navlink
+      a(href="/maker") Your Characters
+  section#characters
+    if !characters || characters.length == 0
+        div.character
+            h3.emptyCharacter No Characters yet
+    else
+        each val in characters
+            div(style={color: val.color}).character
+                img(class="domoFace", src="/assets/img/domoface.jpeg", alt="domo face")
+                h3.domoName Name: #{val.name}
+                h3.domoAge Age: #{val.age}
+  #domoMessage
+    img#speech(src="/assets/img/speech.png", alt="speech box")
+    h3
+      span#errorMessage
+    img#domo(src="assets/img/domo.png", alt="domo")
+block scripts
+        script(src="/assets/maker.js")

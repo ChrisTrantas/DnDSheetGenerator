@@ -1,0 +1,38 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    a(href="/login")
+      img#logo(src="/assets/img/face.png", alt="face logo")
+    .navlink
+      a(href="/logout") Log out
+    .navlink
+      a(href="/view") All Characters
+  section#makeDomo
+    form#characterForm(class="characterForm", name="characterForm", action="/maker", method="POST")
+      label(for="name") Name: 
+      input#characterName(type="text", name="name", placeholder="character Name")
+      label(for="age") Age: 
+      input#characterAge(type="text", name="age", placeholder="Character Age")
+      label(for="Color") Color:
+      input#domoColor(type="text", name="color", placeholder="Character Color")
+      input(type="hidden", name="_csrf", value="#{csrfToken}")
+      a#makeCharacterSubmit(class="makeCharacterSubmit", href="#") Make Character
+  section#characters
+    if !characters || characters.length == 0
+        div.character
+            h3.emptyCharacter No characters yet
+    else
+        each val in characters
+            div(style={color: val.color}).character
+                img(class="domoFace", src="/assets/img/domoface.jpeg", alt="domo face")
+                h3.characterName Name: #{val.name}
+                h3.characterAge Age: #{val.age}
+  #domoMessage
+    img#speech(src="/assets/img/speech.png", alt="speech box")
+    h3
+      span#errorMessage
+    img#domo(src="assets/img/domo.png", alt="domo")
+block scripts
+        script(src="/assets/maker.js")
