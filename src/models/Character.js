@@ -20,6 +20,20 @@ var CharacterSchema = new mongoose.Schema(
 		required: true
 	},
 	
+	race:
+	{
+		type: String,
+		required: true,
+		trim: false,				
+	},
+	
+	profession:
+	{
+		type: String,
+		required: true,
+		trim: false,				
+	},
+	
 	color:
 	{
 		type: String,
@@ -45,6 +59,8 @@ CharacterSchema.methods.toAPI = function()
 {
 	return {
 		name: this.name,
+		race: this.race,
+		profession: this.profession,
 		age: this.age,
 		color: this.color
 	};
@@ -54,12 +70,12 @@ CharacterSchema.statics.findByOwner = function(ownerId, callback)
 {
 	var search = {owner: mongoose.Types.ObjectId(ownerId)};
 	
-	return CharacterModel.find(search).select("name age color").exec(callback);
+	return CharacterModel.find(search).select("name age race profession color").exec(callback);
 };
 
 CharacterSchema.statics.findAll = function(ownerId, callback)
 {	
-	return CharacterModel.find().select("name age color").exec(callback);
+	return CharacterModel.find().select("name age race profession color").exec(callback);
 };
 
 CharacterModel = mongoose.model("Character", CharacterSchema);

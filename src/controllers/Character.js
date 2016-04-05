@@ -16,15 +16,18 @@ var makerPage = function(req, res)
 
 var makeCharacter = function(req, res)
 {
-	if(!req.body.name || !req.body.age)
+	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession)
 	{
 		return res.status(400).json({error: "Both name and age are required"});
 	}
 	
+	// character class = profession
 	var characterData = 
 	{
 		name: req.body.name,
 		age: req.body.age,
+		race: req.body.race,
+		profession: req.body.race,
 		color: req.body.color,
 		owner: req.session.account._id
 	};
@@ -32,6 +35,37 @@ var makeCharacter = function(req, res)
 	var newCharacter = new Character.CharacterModel(characterData);
 	
 	newCharacter.save(function(err)
+	{
+		if(err)
+		{
+			console.log(err);
+			return res.status(400).json({error: "An error occured"});
+		}		
+		res.json({redirect: '/maker'});
+	});
+};
+
+var changeCharacter = function(req, res)
+{
+	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession)
+	{
+		return res.status(400).json({error: "Both name and age are required"});
+	}
+	
+	// character class = profession
+	var characterData = 
+	{
+		name: req.body.name,
+		age: req.body.age,
+		race: req.body.race,
+		profession: req.body.race,
+		color: req.body.color,
+		owner: req.session.account._id
+	};
+	
+	var changedCharacter = new Character.CharacterModel(characterData);
+	
+	changedCharacter.save(function(err)
 	{
 		if(err)
 		{
