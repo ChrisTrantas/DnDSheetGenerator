@@ -13,10 +13,10 @@ block body
       input#characterName(type="text", name="name", placeholder="Character Name")
       label(for="age") Age: 
       input#characterAge(type="text", name="age", placeholder="Character Age")
-      label(for="race") Race: 
-      input#characterRace(type="text", name="race", placeholder="Character Race")
       label(for="profession") Class:
       input#characterProfession(type="text", name="profession", placeholder="Character Profession")
+      label(for="race") Race: 
+      input#characterRace(type="text", name="race", placeholder="Character Race")
       input(type="hidden", name="_csrf", value="#{csrfToken}")
       a#editCharacterSubmit(class="editCharacterSubmit", href="#") Edit Character
   section#characters

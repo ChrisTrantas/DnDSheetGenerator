@@ -28,7 +28,7 @@ var makeCharacter = function(req, res)
 		name: req.body.name,
 		age: req.body.age,
 		race: req.body.race,
-		profession: req.body.race,
+		profession: req.body.profession,
 		owner: req.session.account._id
 	};
 	
@@ -58,7 +58,7 @@ var changeCharacter = function(req, res)
 		name: req.body.name,
 		age: req.body.age,
 		race: req.body.race,
-		profession: req.body.race,
+		profession: req.body.profession,
 		owner: req.session.account._id
 	};
 	
