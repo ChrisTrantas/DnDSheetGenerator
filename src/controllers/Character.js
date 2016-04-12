@@ -62,16 +62,15 @@ var changeCharacter = function(req, res)
 		owner: req.session.account._id
 	};
 	
-	var changedCharacter = new Character.CharacterModel(characterData);
-	
-	changedCharacter.save(function(err)
+	var query = { name: req.body.name, owner: req.session.account._id };
+	Character.CharacterModel.findOneAndUpdate(query, characterData, function(err, docs)
 	{
 		if(err)
 		{
 			console.log(err);
 			return res.status(400).json({error: "An error occured"});
 		}		
-		res.json({redirect: '/maker'});
+		res.json({redirect: '/editor'});
 	});
 };
 
@@ -91,7 +90,7 @@ var viewPage = function(req, res)
 
 var editor = function(req, res)
 {
-	Character.CharacterModel.findAll(req.session.account._id, function(err, docs)
+	Character.CharacterModel.findByOwner(req.session.account._id, function(err, docs)
 	{
 		if(err)
 		{
@@ -106,3 +105,4 @@ module.exports.makerPage = makerPage;
 module.exports.make = makeCharacter;
 module.exports.viewPage = viewPage;
 module.exports.editor = editor;
+module.exports.edit = changeCharacter;
