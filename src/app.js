@@ -9,7 +9,7 @@ var session = require("express-session");
 var RedisStore = require('connect-redis')(session);
 var url = require('url');
 
-var dbURL = process.env.MONGOLAB_URI || "mongodb://localhost/DomoMaker";
+var dbURL = process.env.MONGODB_URI || "mongodb://localhost/CharacterMaker";
 
 var db = mongoose.connect(dbURL, function(err)
 {
