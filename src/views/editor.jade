@@ -1,0 +1,26 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    .navlink
+      a(href="/logout") Log out
+    .navlink
+      a(href="/maker") Your Characters
+  section#characters
+    if !characters || characters.length == 0
+        div.character
+            h3.emptyCharacter No Characters yet
+    else
+        each val in characters
+            div.character
+                h3.characterName Name: #{val.name}
+                h3.characterAge Age: #{val.age}
+                h3.characterRace Race: #{val.race}
+                h3.characterProfession Class: #{val.profession}
+  #domoMessage
+    img#speech(src="/assets/img/speech.png", alt="speech box")
+    h3
+      span#errorMessage
+block scripts
+        script(src="/assets/maker.js")

@@ -1,6 +1,7 @@
 var _ = require("underscore");
 var models = require("../models");
 var Character = models.Character;
+
 var makerPage = function(req, res)
 {
 	Character.CharacterModel.findByOwner(req.session.account._id, function(err, docs)
@@ -88,6 +89,20 @@ var viewPage = function(req, res)
 	});
 };
 
+var editor = function(req, res)
+{
+	Character.CharacterModel.findAll(req.session.account._id, function(err, docs)
+	{
+		if(err)
+		{
+			console.log(err);
+			return res.status(400).json({error: "An error occured"});
+		}		
+		res.render('editor',{characters: docs});
+	});
+};
+
 module.exports.makerPage = makerPage;
 module.exports.make = makeCharacter;
 module.exports.viewPage = viewPage;
+module.exports.editor = editor;

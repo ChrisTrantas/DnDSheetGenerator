@@ -11,6 +11,7 @@ var router = function(app)
 	app.post("/maker", mid.requiresLogin, controllers.Character.make);
 	app.get("/", mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 	app.get("/view", controllers.Character.viewPage);
+	app.get("/editor", controllers.Character.editor);
 };
 
 module.exports = router;
