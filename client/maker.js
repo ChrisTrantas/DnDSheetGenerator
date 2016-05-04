@@ -50,8 +50,7 @@ $(document).ready(function() {
             handleError("All fields are required");
             return false;
         }
-
-        sendAjax($("#characterForm").attr("action"), $("#characterForm").serialize());
+        sendAjax($(".editCharacterForm").attr("action"), $(".editCharacterForm").serialize());
         
         return false;
     });
