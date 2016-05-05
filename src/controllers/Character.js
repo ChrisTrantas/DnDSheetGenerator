@@ -45,7 +45,7 @@ var makeCharacter = function(req, res)
 			console.log(err);
 			return res.status(400).json({error: "An error occured"});
 		}	
-		if(docs == null)
+		if(docs === null)
 		{
 				
 			var newCharacter = new Character.CharacterModel(characterData);
@@ -81,18 +81,16 @@ var changeCharacter = function(req, res)
 		age: req.body.age,
 		race: req.body.race,
 		profession: req.body.profession,
-<<<<<<< HEAD
 		owner: req.session.account._id
 	};
 	
-	var query = { name: req.body.name, owner: req.session.account._id };
-=======
+	var query = 
+	{   name: req.body.name, 
+	    owner: req.session.account._id,
 		id: req.body.id,
-		owner: req.session.account._id
 	};
 	
-	var query = { id: req.body.id, owner: req.session.account._id };
->>>>>>> origin/master
+
 	Character.CharacterModel.findOneAndUpdate(query, characterData, function(err, docs)
 	{
 		if(err)
