@@ -10,8 +10,9 @@ var router = function(app)
 	app.get("/maker", mid.requiresLogin, controllers.Character.makerPage);
 	app.post("/maker", mid.requiresLogin, controllers.Character.make);
 	app.get("/", mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
-	app.get("/view", controllers.Character.viewPage);
-	app.get("/editor", controllers.Character.editor);
+	app.get("/view", mid.requiresLogin, controllers.Character.viewPage);
+	app.get("/editor", mid.requiresLogin, controllers.Character.editor);
+	app.post("/editor", mid.requiresLogin, controllers.Character.edit);
 };
 
 module.exports = router;

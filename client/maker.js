@@ -41,5 +41,18 @@ $(document).ready(function() {
         
         return false;
     });
+	$("#editCharacterSubmit").on("click", function(e) {
+        e.preventDefault();
+    
+        $("#characterMessage").animate({width:'hide'},350);
+    
+        if($("#characterName").val() == '' || $("#characterAge").val() == '') {
+            handleError("All fields are required");
+            return false;
+        }
+        sendAjax($(".editCharacterForm").attr("action"), $(".editCharacterForm").serialize());
+        
+        return false;
+    });
     
 });
