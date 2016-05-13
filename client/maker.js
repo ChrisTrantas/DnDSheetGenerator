@@ -41,16 +41,16 @@ $(document).ready(function() {
         
         return false;
     });
-	$("#editCharacterSubmit").on("click", function(e) {
+	$(".editCharacterForm").on("submit", function(e) {
         e.preventDefault();
     
         $("#characterMessage").animate({width:'hide'},350);
     
-        if($("#characterName").val() == '' || $("#characterAge").val() == '') {
+        if($(this).find(".characterName").val() == '' || $(this).find(".characterAge").val() == '') {
             handleError("All fields are required");
             return false;
         }
-        sendAjax($(".editCharacterForm").attr("action"), $(".editCharacterForm").serialize());
+        sendAjax($(this).attr("action"), $(this).serialize());
         
         return false;
     });

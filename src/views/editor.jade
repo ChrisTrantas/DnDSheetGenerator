@@ -7,23 +7,7 @@ block body
       a(href="/logout") Log out
     .navlink
       a(href="/maker") Your Characters
-<<<<<<< HEAD
-  section#makeCharacter
-                form#editCharacterForm(class="editCharacterForm", name="editCharacterForm", action="/editor", method="POST")
-                  label(for="name") Name: 
-                  input#characterName(type="text", name="name", placeholder="Character Name")
-                  label(for="age") Age: 
-                  input#characterAge(type="text", name="age", placeholder="Character Age")
-                  label(for="profession") Class:
-                  input#characterProfession(type="text", name="profession", placeholder="Character Class")
-                  label(for="race") Race: 
-                  input#characterRace(type="text", name="race", placeholder="Character Race")
-                  input(type="hidden", name="_csrf", value="#{csrfToken}")
-                  a#editCharacterSubmit(class="editCharacterSubmit", href="#") Edit Character
-  section#characters
-=======
   section#editCharacters
->>>>>>> origin/master
     if !characters || characters.length == 0
         div.character
             h3.emptyCharacter No characters yet
@@ -31,17 +15,17 @@ block body
         each val in characters
             div.character
                 form.editCharacterForm(class="editCharacterForm", name="editCharacterForm", action="/editor", method="POST")
-                  label(for="name") Name: 
-                  input#characterName(type="text", name="name", placeholder="#{val.name}")
+                  label(for="name") Name: #{val.name}
+                  input.characterName(type="hidden", name="name", placeholder="#{val.name}")
                   label(for="age") Age: 
-                  input#characterAge(type="text", name="age", placeholder="#{val.age}")
+                  input.characterAge(type="text", name="age", placeholder="#{val.age}")
                   label(for="profession") Class:
-                  input#characterProfession(type="text", name="profession", placeholder="#{val.profession}")
+                  input.characterProfession(type="text", name="profession", placeholder="#{val.profession}")
                   label(for="race") Race: 
-                  input#characterRace(type="text", name="race", placeholder="#{val.race}")
+                  input.characterRace(type="text", name="race", placeholder="#{val.race}")
                   input(type="hidden", name="_csrf", value="#{csrfToken}")
                   input(type="hidden", name="id", value="#{val.id}")
-                  a#editCharacterSubmit(class="editCharacterSubmit", href="#") Edit Character
+                  button.editCharacterSubmit(class="editCharacterSubmit", href="#") Edit Character
   #characterMessage
     img#speech(src="/assets/img/speech.png", alt="speech box")
     h3

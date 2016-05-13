@@ -77,20 +77,14 @@ var changeCharacter = function(req, res)
 	// character class = profession
 	var characterData = 
 	{
-		name: req.body.name,
-		age: req.body.age,
-		race: req.body.race,
-		profession: req.body.profession,
-		owner: req.session.account._id
+		$set: { "name": req.body.name,
+				"age": req.body.age,
+				"race": req.body.race,
+				"profession": req.body.profession}
 	};
 	
-	var query = 
-	{   name: req.body.name, 
-	    owner: req.session.account._id,
-		id: req.body.id,
-	};
+	var query = { name: req.body.name, owner: req.session.account._id };
 	
-
 	Character.CharacterModel.findOneAndUpdate(query, characterData, function(err, docs)
 	{
 		if(err)
