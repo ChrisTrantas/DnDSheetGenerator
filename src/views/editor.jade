@@ -16,7 +16,7 @@ block body
             div.character
                 form.editCharacterForm(class="editCharacterForm", name="editCharacterForm", action="/editor", method="POST")
                   label(for="name") Name: #{val.name}
-                  input.characterName(type="hidden", name="name", placeholder="#{val.name}")
+                  input.characterName(type="hidden", name="name", value="#{val.name}")
                   label(for="age") Age: 
                   input.characterAge(type="text", name="age", placeholder="#{val.age}")
                   label(for="profession") Class:
