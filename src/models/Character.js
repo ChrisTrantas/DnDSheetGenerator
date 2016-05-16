@@ -34,6 +34,48 @@ var CharacterSchema = new mongoose.Schema(
 		trim: false,				
 	},
 	
+	strength:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
+	dexterity:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
+	constitution:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
+	intelligence:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
+	wisdom:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
+	charisma:
+	{
+		type: Number,
+		min: 0,
+		required: true				
+	},
+	
 	owner:
 	{
 		type: mongoose.Schema.ObjectId,
@@ -54,7 +96,13 @@ CharacterSchema.methods.toAPI = function()
 		name: this.name,
 		race: this.race,
 		profession: this.profession,
-		age: this.age
+		age: this.age,
+		strength: this.strength,
+		dexterity: this.dexterity,
+		constitution: this.constitution,
+		intelligence: this.intelligence,
+		wisdom: this.wisdom,
+		charisma: this.charisma,
 	};
 };
 
@@ -62,12 +110,12 @@ CharacterSchema.statics.findByOwner = function(ownerId, callback)
 {
 	var search = {owner: mongoose.Types.ObjectId(ownerId)};
 	
-	return CharacterModel.find(search).select("name age race profession").exec(callback);
+	return CharacterModel.find(search).select("name age race profession strength dexterity constitution intelligence wisdom charisma").exec(callback);
 };
 
 CharacterSchema.statics.findAll = function(ownerId, callback)
 {	
-	return CharacterModel.find().select("name age race profession").exec(callback);
+	return CharacterModel.find().select("name age race profession strength dexterity constitution intelligence wisdom charisma").exec(callback);
 };
 
 CharacterModel = mongoose.model("Character", CharacterSchema);

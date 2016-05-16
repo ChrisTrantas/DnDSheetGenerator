@@ -17,9 +17,10 @@ var makerPage = function(req, res)
 
 var makeCharacter = function(req, res)
 {
-	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession)
+	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession || !req.body.strength
+	|| !req.body.dexterity || !req.body.constitution || !req.body.intelligence || !req.body.wisdom|| !req.body.charisma)
 	{
-		return res.status(400).json({error: "Name, age, race, and class are required"});
+		return res.status(400).json({error: "Name, age, race, class and stats are required"});
 	}
 	
 	// character class = profession
@@ -29,6 +30,12 @@ var makeCharacter = function(req, res)
 		age: req.body.age,
 		race: req.body.race,
 		profession: req.body.profession,
+		strength: req.body.strength,
+		dexterity: req.body.dexterity,
+		constitution: req.body.constitution,
+		intelligence: req.body.intelligence,
+		wisdom: req.body.wisdom,
+		charisma: req.body.charisma,
 		owner: req.session.account._id
 	};
 	
@@ -69,9 +76,10 @@ var makeCharacter = function(req, res)
 
 var changeCharacter = function(req, res)
 {
-	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession)
+	if(!req.body.name || !req.body.age || !req.body.race || !req.body.profession || !req.body.strength
+	|| !req.body.dexterity || !req.body.constitution || !req.body.intelligence || !req.body.wisdom|| !req.body.charisma)
 	{
-		return res.status(400).json({error: "Name, age, race, and class are required"});
+		return res.status(400).json({error: "Name, age, race, class and stats are required"});
 	}
 	
 	// character class = profession
@@ -80,7 +88,13 @@ var changeCharacter = function(req, res)
 		$set: { "name": req.body.name,
 				"age": req.body.age,
 				"race": req.body.race,
-				"profession": req.body.profession}
+				"profession": req.body.profession,
+				"strength": req.body.strength,
+				"dexterity": req.body.dexterity,
+				"constitution": req.body.constitution,
+				"intelligence": req.body.intelligence,
+				"wisdom": req.body.wisdom,
+				"charisma": req.body.charisma}
 	};
 	
 	var query = { name: req.body.name, owner: req.session.account._id };

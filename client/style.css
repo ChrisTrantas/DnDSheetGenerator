@@ -49,8 +49,8 @@ nav:nth-child(1) {
 
 .characterForm {
     border: 2px solid #9C2B1B;
-    height: 35px;
-    width: 1300px;
+    height: 95px;
+    width: 100%;
     margin-top:0px;
     padding-top:10px;
     background-color: #58280D;
@@ -60,8 +60,9 @@ nav:nth-child(1) {
 
 .characterForm label {
     display: inline-block;
-    width: 75px;
-    margin-left: 10px;
+	float:left;
+    width: 120px;
+    margin-left: 15px;
     font-size: 1.2em;
     float: left;
     color: white;
@@ -69,11 +70,12 @@ nav:nth-child(1) {
 
 .characterForm input[type=text] {
     float:left;
+	width: 175px;
 }
 
 .editCharacterForm {
     height: 35px;
-    width: 1300px;
+    width: 100%;
     margin-top:0px;
     padding-top:10px;
     border-bottom-right-radius: 4px;
@@ -82,7 +84,7 @@ nav:nth-child(1) {
 
 .editCharacterForm label {
     display: inline-block;
-    width: 75px;
+    width: 100px;
     margin-left: 10px;
     font-size: 1.2em;
     float: left;
@@ -96,10 +98,11 @@ nav:nth-child(1) {
 .makeCharacterSubmit {
     transition: background-color 0.4s ease;
     display: inline;
+	float: right;
     margin-top: 14px;
     font-size: 1.2em;
     width: 90px;
-    background-color: #58280D;
+    background-color: #9C2B1B;
     border-radius: 2px;
     padding: 3px 0px;
     color: black;
@@ -114,11 +117,12 @@ nav:nth-child(1) {
 
 .makeCharacterSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #9C2B1B;
+    background-color: #58280D;
 }
 .editCharacterSubmit {
     transition: background-color 0.4s ease;
     display: inline;
+	float: right;
     margin-top: 14px;
     font-size: 1.2em;
     width: 90px;
@@ -235,7 +239,7 @@ nav:nth-child(1) {
 }
 
 #characters {
-    width: 60%;
+    width: 90%;
     min-width: 400px;
     border: 2px solid #9C2B1B;
     border-radius: 4px;
@@ -244,7 +248,7 @@ nav:nth-child(1) {
 }
 
 #editCharacters {
-    width: 70%;
+    width: 90%;
     min-width: 400px;
     border: 2px solid #9C2B1B;
     border-radius: 4px;
@@ -260,7 +264,7 @@ nav:nth-child(1) {
     border: 2px solid #58280D;
     border-radius: 4px;
     background-color: #F2ECE4;
-    padding: 10px;
+    padding: 15px;
     min-height:60px;
     overflow: hidden;
 }
@@ -272,15 +276,6 @@ nav:nth-child(1) {
     background-color: #9C2B1B;
 }
 
-img.domoFace {
-    margin-left: 25px;
-    margin-right: 10px;
-    height: 50px;
-    width: 50px;
-    border-radius: 4px;
-    margin-top:10px;
-    float:left;
-}
 
 h3.emptyCharacter {
     width: 400px;
@@ -301,7 +296,7 @@ h3.characterName {
 h3.characterAge {
     float:left;
     text-align: left;
-    width: 100px;
+    width: 20px;
     font-weight: bold;
     padding-right: 40px;
     font-size: 1.5em;
@@ -316,6 +311,60 @@ h3.characterProfession {
 h3.characterRace{
 	float:right;
     width: 200px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterStrength{
+	 float:left;
+    text-align: left;
+    width: 50px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterDexterity{
+	 float:left;
+    text-align: left;
+    width: 50px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterConstitution{
+	 float:left;
+    text-align: left;
+    width: 80px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterWisdom{
+	 float:left;
+    text-align: left;
+    width: 50px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterIntelligence{
+	 float:left;
+    text-align: left;
+    width: 80px;
+    font-weight: bold;
+    padding-left: 65px;
+    font-size: 1.5em;
+}
+
+h3.characterCharisma{
+	 float:left;
+    text-align: left;
+    width: 20px;
     font-weight: bold;
     padding-left: 65px;
     font-size: 1.5em;

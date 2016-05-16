@@ -23,6 +23,18 @@ block body
                   input.characterProfession(type="text", name="profession", placeholder="#{val.profession}")
                   label(for="race") Race: 
                   input.characterRace(type="text", name="race", placeholder="#{val.race}")
+                  label(for="strength") Strength: 
+                  input.characterStrength(type="text", name="strength", placeholder="#{val.strength}")
+                  label(for="dexterity") Dexterity: 
+                  input.characterDexterity(type="text", name="dexterity", placeholder="#{val.dexterity}")
+                  label(for="constitution") Constitution: 
+                  input.characterConstitution(type="text", name="constitution", placeholder="#{val.constitution}")
+                  label(for="wisdom") Wisdom: 
+                  input.characterWisdom(type="text", name="wisdom", placeholder="#{val.wisdom}")
+                  label(for="intelligence") Intelligence: 
+                  input#characterIntelligence(type="text", name="intelligence", placeholder="#{val.intelligence}")
+                  label(for="charisma") Charisma: 
+                  input.characterCharisma(type="text", name="charisma", placeholder="#{val.charisma}")
                   input(type="hidden", name="_csrf", value="#{csrfToken}")
                   input(type="hidden", name="id", value="#{val.id}")
                   button.editCharacterSubmit(class="editCharacterSubmit", href="#") Edit Character

@@ -19,6 +19,18 @@ block body
       input#characterProfession(type="text", name="profession", placeholder="Character Profession")
       label(for="race") Race: 
       input#characterRace(type="text", name="race", placeholder="Character Race")
+      label(for="strength") Strength: 
+      input#characterStrength(type="text", name="strength", placeholder="Strength")
+      label(for="dexterity") Dexterity: 
+      input#characterDexterity(type="text", name="dexterity", placeholder="Dexterity")
+      label(for="constitution") Constitution: 
+      input#characterConstitution(type="text", name="constitution", placeholder="Constitution")
+      label(for="wisdom") Wisdom: 
+      input#characterWisdom(type="text", name="wisdom", placeholder="Wisdom")
+      label(for="intelligence") Intelligence: 
+      input#characterIntelligence(type="text", name="intelligence", placeholder="Intelligence")
+      label(for="charisma") Charisma: 
+      input#characterCharisma(type="text", name="charisma", placeholder="Charisma")
       input(type="hidden", name="_csrf", value="#{csrfToken}")
       a#makeCharacterSubmit(class="makeCharacterSubmit", href="#") Make Character
   section#characters
@@ -32,6 +44,12 @@ block body
                 h3.characterAge Age: #{val.age}
                 h3.characterRace Race: #{val.race}
                 h3.characterProfession Class: #{val.profession}
+                h3.characterStrength Strength: #{val.strength}
+                h3.characterDexterity Dexterity: #{val.dexterity}
+                h3.characterConstitution Constitution: #{val.constitution}
+                h3.characterWisdom Wisdom: #{val.wisdom}
+                h3.characterIntelligence Intelligence: #{val.intelligence}
+                h3.characterCharisma Charisma: #{val.charisma}			
   #characterMessage
     img#speech(src="/assets/img/speech.png", alt="speech box")
     h3
